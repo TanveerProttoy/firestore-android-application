@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "464719607532",
+    "firebase_url": "https://fir-demo-c626d.firebaseio.com",
+    "project_id": "fir-demo-c626d",
+    "storage_bucket": "fir-demo-c626d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464719607532:android:c96392a58a07c93a",
+        "android_client_info": {
+          "package_name": "txp.prottoy.shafee.tanveer.firestoreapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464719607532-f3t8kocedbnks37alamda7jpn08b3dg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "txp.prottoy.shafee.tanveer.firestoreapplication",
+            "certificate_hash": "733cf7594439c66987c6b7b0440a8dc449b5ac2a"
+          }
+        },
+        {
+          "client_id": "464719607532-ofocb9747968nsrcsdruriu5t9h6cml3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJTyIkwAZ8zmW4mdgFabNYSBXGocMADD8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464719607532-ofocb9747968nsrcsdruriu5t9h6cml3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
