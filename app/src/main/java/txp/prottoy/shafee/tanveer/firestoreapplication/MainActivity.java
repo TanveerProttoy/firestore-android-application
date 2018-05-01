@@ -38,8 +38,26 @@ public class MainActivity extends AppCompatActivity implements AddDialogFragment
     }
 
     @Override
-    public void addData(String[] values) {
-        add(values);
+    public void addData(final String[] values) {
+        contactMap = new HashMap<>();
+        contactMap.put(NAME, values[0]);
+        contactMap.put(NUMBER, values[1]);
+        firestore.collection(CONTACTS).add(contactMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                contact = new Contact();
+                contact.setName(values[0]);
+                contact.setNumber(values[1]);
+                contacts.add(contact);
+                contactListAdapter.notifyDataSetChanged();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error adding document", e);
+            }
+        });
     }
 
     private void initialize() {
@@ -70,28 +88,6 @@ public class MainActivity extends AppCompatActivity implements AddDialogFragment
                 else {
                     Log.w(TAG, "Error getting documents.", task.getException());
                 }
-            }
-        });
-    }
-
-    private void add(final String[] values) {
-        contactMap = new HashMap<>();
-        contactMap.put(NAME, values[0]);
-        contactMap.put(NUMBER, values[1]);
-        firestore.collection(CONTACTS).add(contactMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                contact = new Contact();
-                contact.setName(values[0]);
-                contact.setNumber(values[1]);
-                contacts.add(contact);
-                contactListAdapter.notifyDataSetChanged();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "Error adding document", e);
             }
         });
     }
